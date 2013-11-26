@@ -1,0 +1,21 @@
+
+#include <iostream>
+#include <osapi/ThreadFunctor.hpp>
+#include <osapi/MsgQueue.hpp>
+#include <MessageDistributionSystem.hpp>
+
+#include <Publisher.hpp>
+
+
+  
+
+
+int main(int argc, char* argv[])
+{
+  Publisher p;
+  osapi::Thread pTh(&p);
+
+  pTh.start();
+
+  pTh.join();
+}

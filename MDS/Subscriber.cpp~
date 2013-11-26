@@ -1,0 +1,59 @@
+#include <Subscriber.hpp>
+
+
+Subscriber::Subscriber(unsigned int subId)
+  :  subId_(subId)
+{
+  /*****************************************************/
+  /*****************************************************/
+  /* Write the necessary code to subscribe to an event */
+  /*****************************************************/
+  /*****************************************************/    
+}
+
+
+void Subscriber::handleMsgIdStart(HelloMsg* hm)
+{
+  OSAPI_LOG_DBG("S(" << subId_ << ") The hello message contained: '" << static_cast<HelloMsg*>(msg)->data_ << "'");
+
+  /*******************************************************/
+  /*******************************************************/
+  /* Write the necessary code to unsubscribe to an event */
+  /*******************************************************/
+  /*******************************************************/    
+  
+}
+
+
+
+
+void Subscriber::handleMsg(osapi::Message* msg, unsigned long id)
+{
+  switch(id)
+  {
+    case ID_HELLO:
+      handleMsgIdHello(static_cast<HelloMsg*>(msg));
+      break;
+        
+    case ID_TERMINATE:
+      OSAPI_LOG_DBG("S(" << subId_ << ") Got terminate signal");
+      break;
+  }
+    
+}
+
+
+void Subscriber::run()
+{
+  OSAPI_LOG_DBG("Preparing for loop...");
+
+  while(running_)
+  {
+    unsigned long id;
+    osapi::Message* m = mq_.receive(id);
+    handleMsg(id, m);
+    delete m;
+  }
+
+  OSAPI_LOG_DBG("Thread terminating...");
+}

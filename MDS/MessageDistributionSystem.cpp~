@@ -1,0 +1,21 @@
+#include <MessageDistributionSystem.hpp>
+
+
+void MessageDistributionSystem::subscribe(const std::string& msgId, 
+                                          osapi::MsgQueue* mq, 
+                                          unsigned long id)
+{
+  /* Implement your solution here... */
+}
+
+
+void MessageDistributionSystem::unSubscribe(const std::string& msgId, 
+                                            osapi::MsgQueue* mq, 
+                                            unsigned long id)
+{
+  /* Skal lige implementere min løsning her måske??? */
+}
+
+
+
+

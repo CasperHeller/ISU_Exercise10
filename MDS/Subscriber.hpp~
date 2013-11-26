@@ -1,0 +1,31 @@
+#ifndef SUBSCRIBER_HPP_
+#define SUBSCRIBER_HPP_
+
+/**
+ * class Subsciber
+ */
+class Subscriber 
+{
+public:
+  enum { MAX_MSG_COUNT = 10 };
+  Subscriber(unsigned int subId);
+  
+
+protected:
+  // The subscription it self is missing and os is the unsubscription - Where will you put these?
+  virtual void handleMsg(osapi::Message* msg, unsigned long id);
+
+  bool                 running_;
+  osapi::MsgQueue      mq_;
+
+private:
+  enum {
+    ID_TERMINATE,
+    ID_HELLO 
+  };
+  unsigned int subId_;
+};
+
+
+#endif
+

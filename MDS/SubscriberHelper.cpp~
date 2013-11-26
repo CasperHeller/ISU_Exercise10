@@ -1,0 +1,39 @@
+#include <SubscriberHelper.hpp>
+
+
+SubscriberHelper::SubscriberHelper()
+  : mq_(NULL), id_(0)
+{
+}
+
+
+SubscriberHelper::SubscriberHelper(const std::string& msgId, osapi::MsgQueue* mq, unsigned long id)
+  : msgId_(msgId), mq_(mq), id_(id)
+{
+  /* Missing code */
+}
+
+
+
+
+SubscriberHelper& SubscriberHelper::operator=(SubscriberHelper& other)
+{
+  /* Missing code */
+
+  return *this;
+}
+
+
+
+
+
+void SubscriberHelper::unSubscribe()
+{
+  /* Missing code */
+}
+
+
+SubscriberHelper::~SubscriberHelper()
+{
+  /* Missing code */
+}
